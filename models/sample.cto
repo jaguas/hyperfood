@@ -9,8 +9,10 @@ enum PesticideType {
 }
 
 enum Status {
- o WAITING_FOR_AUDIT
- o AUDITED
+ o PLANTED
+ o GERMINATING
+ o READYFORHARVEST
+ o HARVESTED
  o SHIPPED
  o DELIVERED
 }
@@ -25,7 +27,7 @@ asset Product identified by productId {
   o String origin
   o Status status
   --> Producer producer
-  --> Audit[] audits
+  --> Audit[] audits optional
 }
 
 asset Audit identified by auditId {
@@ -57,6 +59,9 @@ transaction changeProductStatus {
 }
 
 transaction auditProduct {
+  o DateTime date
+  o Boolean success
+  o String notes
   --> Product product
   --> Auditor auditor
 }
