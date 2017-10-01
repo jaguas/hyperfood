@@ -197,6 +197,11 @@ hr.small {
   color: #2ecc71;
 }
 
+.services img{
+  width: 610px;
+  height: 350px;
+}
+
 /* Callout */
 
 .callout {
